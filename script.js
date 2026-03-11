@@ -10,6 +10,7 @@ const roles = [
 let index = 0;
 let charIndex = 0;
 const typingElement = document.querySelector(".typing-text");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function typeEffect() {
   if (charIndex < roles[index].length) {
@@ -32,22 +33,34 @@ function eraseEffect() {
   }
 }
 
-typeEffect();
+if (typingElement) {
+  if (prefersReducedMotion) {
+    typingElement.textContent = roles[0];
+  } else {
+    typeEffect();
+  }
+}
 
 
 /* ===== SCROLL ANIMATION ===== */
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  { threshold: 0.3 }
-);
+const hiddenBlocks = document.querySelectorAll(".hidden");
 
-document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+if (prefersReducedMotion) {
+  hiddenBlocks.forEach(el => el.classList.add("show"));
+} else {
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  hiddenBlocks.forEach(el => observer.observe(el));
+}
 
 /* ===== MOBILE NAV ===== */
 const navToggle = document.querySelector(".nav-toggle");

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Satyam Nallapu-Portfolio</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -32,8 +34,9 @@
         <div>
           <h2 class="typing-text"></h2></div>
         <p>
-          I build modern, responsive, and high-performance web applications
-          using React, JavaScript, and Python.
+          Software Engineer focused on Full Stack Development and DevOps, with strong skills in Python,
+          JavaScript, and GenAI. I build scalable applications using React.js, Node.js, and Django, and deliver
+          automation-driven, LLM-powered solutions for real-world problems.
         </p>
 
         <div class="hero-buttons">
@@ -43,14 +46,10 @@
         </div>
       </div>
 
-      <div class="hero-animation">
-        <lottie-player
-          src="https://assets1.lottiefiles.com/packages/lf20_kyu7xb1v.json"
-          background="transparent"
-          speed="0.8"
-          loop
-          autoplay>
-        </lottie-player>
+      <div class="hero-image-wrap">
+        <div class="hero-image">
+          <img src="assets/my-image.jpeg" alt="Satyam Nallapu profile photo" loading="eager" decoding="async" fetchpriority="high">
+        </div>
       </div>
     </section>
 
@@ -374,7 +373,7 @@
       <div class="cert-grid">
         <article class="cert-card">
           <div class="cert-image">
-            <img src="assets/almabetter.jpeg" alt="Professional Fellowship in Software Engineering (AI and DevOps) certificate">
+            <img src="assets/almabetter.jpeg" alt="Professional Fellowship in Software Engineering (AI and DevOps) certificate" loading="lazy" decoding="async">
           </div>
           <div class="cert-content">
             <h4>Professional Fellowship in Software Engineering (AI and DevOps)</h4>
@@ -384,7 +383,7 @@
 
         <article class="cert-card">
           <div class="cert-image">
-            <img src="assets/pythonfullstack.jpeg" alt="Python Full-Stack Development certificate">
+            <img src="assets/pythonfullstack.jpeg" alt="Python Full-Stack Development certificate" loading="lazy" decoding="async">
           </div>
           <div class="cert-content">
             <h4>Python Full-Stack Development</h4>
@@ -417,10 +416,6 @@
       </div>
     </section>
 
-    <!-- Lottie CDN -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
-
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -118,6 +118,33 @@ body {
   margin-bottom: 30px;
 }
 
+.hero-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.hero-image {
+  width: min(360px, 38vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(135deg, #58beff, #2ed670);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.38);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  background: #0b1220;
+  animation: float 4s ease-in-out infinite;
+}
+
 
 
 /* BUTTONS */
@@ -158,6 +185,8 @@ body {
 .section-block {
   min-height: 45vh;
   padding: 90px 10%;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
 }
 
 .section-block h3 {
@@ -844,18 +873,13 @@ body {
   opacity: 0;
   transform: translateY(26px);
   transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
 }
 
 .show {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* IMAGE */
-.hero-image img {
-  width: 420px;
-  max-width: 100%;
-  animation: float 4s ease-in-out infinite;
+  will-change: auto;
 }
 
 /* ANIMATIONS */
@@ -879,6 +903,19 @@ body {
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
@@ -969,6 +1006,10 @@ body {
 
   .hero-buttons {
     justify-content: center;
+  }
+
+  .hero-image {
+    width: min(290px, 74vw);
   }
 
   .skills-icon-grid {
