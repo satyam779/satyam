@@ -47,3 +47,43 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+
+/* ===== MOBILE NAV ===== */
+const navToggle = document.querySelector(".nav-toggle");
+const navPanel = document.querySelector(".glass-nav");
+const navOverlay = document.querySelector(".nav-overlay");
+
+if (navToggle && navPanel && navOverlay) {
+  const closeNav = () => {
+    document.body.classList.remove("nav-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  };
+
+  const openNav = () => {
+    document.body.classList.add("nav-open");
+    navToggle.setAttribute("aria-expanded", "true");
+  };
+
+  navToggle.addEventListener("click", () => {
+    if (document.body.classList.contains("nav-open")) {
+      closeNav();
+      return;
+    }
+    openNav();
+  });
+
+  navOverlay.addEventListener("click", closeNav);
+  navPanel.querySelectorAll("a").forEach(link => link.addEventListener("click", closeNav));
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      closeNav();
+    }
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeNav();
+    }
+  });
+}
