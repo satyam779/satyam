@@ -816,8 +816,8 @@ body {
 }
 
 .contact-icon {
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -830,7 +830,7 @@ body {
 }
 
 .contact-icon i {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   line-height: 1;
 }
 
@@ -1069,7 +1069,7 @@ body {
   }
 
   .contact-icon {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
   }
 }
